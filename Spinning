@@ -1,0 +1,63 @@
+import pygame
+import random
+
+# Set up the screen dimensions
+WIDTH, HEIGHT = 800, 600
+FPS = 60
+
+# Colors
+PINK = (255, 105, 180)
+BLACK = (0, 0, 0)
+
+# Initialize Pygame
+pygame.init()
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+clock = pygame.time.Clock()
+
+# Load the images
+background = pygame.Surface((WIDTH, HEIGHT))
+background.fill(PINK)
+mountain_color = (255, 20, 147)
+for _ in range(1000):
+    x = random.randint(0, WIDTH)
+    y = random.randint(0, HEIGHT // 2)
+    size = random.randint(1, 3)
+    pygame.draw.circle(background, mountain_color, (x, y), size)
+
+ground_color = (255, 20, 147)
+for _ in range(200):
+    x = random.randint(0, WIDTH)
+    y = random.randint(HEIGHT // 2, HEIGHT)
+    size = random.randint(1, 3)
+    pygame.draw.circle(background, ground_color, (x, y), size)
+
+cloud_color = BLACK
+for _ in range(50):
+    x = random.randint(0, WIDTH)
+    y = random.randint(0, HEIGHT // 2)
+    size = random.randint(10, 40)
+    pygame.draw.circle(background, cloud_color, (x, y), size)
+
+girl_hair = pygame.image.load('girl_hair.png')  # Replace with your own girl hair image
+girl_skin = pygame.image.load('girl_skin.png')  # Replace with your own girl skin image
+shirt = pygame.image.load('pink_shirt.png')  # Replace with your own pink shirt image
+skirt = pygame.image.load('pink_skirt.png')  # Replace with your own pink skirt image
+nails = pygame.image.load('pink_nails.png')  # Replace with your own pink nails image
+toe_nails = pygame.image.load('pink_toe_nails.png')  # Replace with your own pink toe nails image
+sandals = pygame.image.load('black_sandals.png')  # Replace with your own black sandals image
+
+# Set up initial positions
+girl_hair_pos = (WIDTH // 2 - girl_hair.get_width() // 2, HEIGHT // 2 - girl_hair.get_height() // 2)
+girl_skin_pos = (WIDTH // 2 - girl_skin.get_width() // 2, HEIGHT // 2 - girl_skin.get_height() // 2)
+shirt_pos = (WIDTH // 2 - shirt.get_width() // 2, HEIGHT // 2 - shirt.get_height() // 2)
+skirt_pos = (WIDTH // 2 - skirt.get_width() // 2, HEIGHT // 2 - skirt.get_height() // 2)
+nails_pos = (WIDTH // 2 - nails.get_width() // 2, HEIGHT // 2 - nails.get_height() // 2)
+toe_nails_pos = (WIDTH // 2 - toe_nails.get_width() // 2, HEIGHT // 2 - toe_nails.get_height() // 2)
+sandals_pos = (WIDTH // 2 - sandals.get_width() // 2, HEIGHT // 2 - sandals.get_height() // 2)
+
+# Set up spinning variables
+spin_angle = 0
+spin_speed = 1
+is_spinning = True
+is_tornado = False
+tornado_radius = min(WIDTH,
