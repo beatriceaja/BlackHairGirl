@@ -2,7 +2,7 @@ import pygame
 import random
 
 # Set up the screen dimensions
-WIDTH, HEIGHT = 800, 600
+WIDTH, HEIGHT = 800, 601
 FPS = 60
 
 # Colors
